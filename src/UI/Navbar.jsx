@@ -19,7 +19,10 @@ const Navbar = () => {
         <Link to="/">
           <img src={Logo} alt="logo" />
         </Link>
-        <span>FOODIE.</span>
+        <Link to="/">
+          <span>FOODIE.</span>
+        </Link>
+
         <div className="hiddenLinks">
           <Link to="/"> Home </Link>
           <Link to="/recipes"> Recipes </Link>
