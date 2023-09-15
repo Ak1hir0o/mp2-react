@@ -1,5 +1,6 @@
 import React from "react";
 import SampleImg from "../assets/sample_img.jpg";
+import SampleImg2 from "../assets/sample_img_2.jpg";
 import "../styles/About.scss";
 
 const About = () => {
@@ -10,28 +11,42 @@ const About = () => {
           <img src={SampleImg} alt="" />
           <div className="about-text">
             <h1>About Us</h1>
-            <h5>Dummy Title</h5>
+            <h5>Our Mission</h5>
             <p>
-              Lorem ipsum dolor sit amet
-              consectetur adipisicing elit.
-              Sapiente quod doloribus aut beatae
-              neque exercitationem delectus
-              voluptas culpa nam saepe? Enim quod
-              neque incidunt quibusdam earum ex
-              veritatis similique eligendi,
-              laboriosam, praesentium perferendis
-              accusantium quae, illo quo!
-              Aspernatur aperiam possimus ex
-              corrupti saepe, sapiente repudiandae
-              consequatur recusandae error
-              voluptas nihil.
+              At Foodie, we are dedicated to
+              celebrating the world's diverse
+              culinary traditions and connecting
+              food enthusiasts with the flavors
+              and stories that make every bite an
+              unforgettable experience. Our
+              mission is to inspire and empower
+              people to explore, appreciate, and
+              savor the rich tapestry of global
+              cuisine.
             </p>
-            <button
-              type="button"
-              className="about-btn">
-              See More
-            </button>
           </div>
+        </div>
+        <div className="main">
+          <div className="about-text">
+            <h5>Our Story</h5>
+            <p>
+              Founded in 2023, Foodie emerged from
+              a shared love for food and a desire
+              to share that passion with the
+              world. What started as a humble blog
+              has evolved into a thriving
+              community of food lovers, chefs, and
+              artisans who believe that food is
+              more than sustenance; it's an art
+              form, a cultural touchstone, and a
+              source of endless fascination.
+            </p>
+          </div>
+          <img
+            src={SampleImg2}
+            className="img2"
+            alt=""
+          />
         </div>
       </section>
     </>

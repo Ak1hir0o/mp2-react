@@ -9,11 +9,13 @@ const Home = () => {
       className="home"
       style={{
         backgroundImage: `url(${LandingImg})`,
-      }}>
+      }}
+    >
       <div className="headerContainer">
-        <h1> TITLE </h1>
+        <h1> FOODIE </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur,
+          Let's make every meal an adventure!, <br /> Taste the world with
+          Foodie today!
         </p>
         <Link to="/recipes">
           <button> View Recipes </button>

@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,400&display=swap");
+
+$color_1: rgb(44, 44, 44);
+$color_2: white;
+$color_3: black;
+$font-family_1: "Roboto Mono", monospace;
+$border-color_1: black;
+$border-color_2: grey;
+
+* {
+  box-sizing: border-box;
+}
+.contact-section {
+  background-image: url(/src/assets/landing_img.jpg);
+  padding: 10px 0;
+  h1 {
+    text-align: center;
+    font-family: $font-family_1;
+    color: $color_1;
+    font-size: 70px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+    padding: 0;
+  }
+}
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px 10px;
+  overflow: hidden;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: $border-color_1;
+  border-style: double;
+  &:hover {
+    padding: 20px 10px;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: $border-color_2;
+    border-style: double;
+  }
+}
+.contact-form-text {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px 0;
+  border: 0;
+  background: rgb(193, 193, 193);
+  padding: 20px 40px;
+  outline: none;
+  transition: 0.5s;
+  &:focus {
+    box-shadow: 0 0 10px 4px rgb(44, 44, 44);
+  }
+}
+textarea.contact-form-text {
+  height: 120px;
+}
+.contact-form-btn {
+  background: black;
+  color: $color_2;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;
+  border-radius: 30px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+  display: block;
+  margin: auto;
+  &:hover {
+    background: transparent;
+    border: 2px solid black;
+    color: $color_3;
+    cursor: pointer;
+  }
+}
