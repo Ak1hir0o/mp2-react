@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,400&display=swap");
+
+/* * {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  box-sizing: border-box;
+} */
+
+.about {
+  width: 100%;
+  padding: 78px, 0px;
+  background-image: url(/src/assets/landing_img.jpg);
+}
+
+.about img {
+  height: auto;
+  width: 420px;
+}
+
+.about-text {
+  width: 550px;
+}
+
+.main {
+  width: 1130px;
+  max-width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-text h1,
+.about-text h5,
+.about-text p {
+  font-family: "Roboto Mono", monospace;
+}
+
+.about-text h1 {
+  color: black;
+  font-size: 70px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-weight: lighter;
+}
+
+.about-text h5 {
+  color: black;
+  font-size: 25px;
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.about-text p {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 45px;
+  letter-spacing: 1px;
+}
+
+.about-btn {
+  background: black;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;
+  border-radius: 30px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+}
+
+.about-btn:hover {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
+}
