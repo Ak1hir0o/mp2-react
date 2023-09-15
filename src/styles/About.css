@@ -17,6 +17,11 @@
   height: auto;
   width: 420px;
 }
+.about .img2 {
+  height: 303px;
+  width: 420px;
+  object-fit: cover;
+}
 
 .about-text {
   width: 550px;
@@ -40,7 +45,6 @@
 .about-text h1 {
   color: black;
   font-size: 70px;
-  text-transform: capitalize;
   margin-bottom: 20px;
   font-weight: lighter;
 }
@@ -48,13 +52,12 @@
 .about-text h5 {
   color: black;
   font-size: 25px;
-  text-transform: capitalize;
   margin-bottom: 25px;
   letter-spacing: 2px;
 }
 
 .about-text p {
-  color: black;
+  color: rgb(44, 44, 44);
   font-size: 18px;
   margin-bottom: 45px;
   letter-spacing: 1px;

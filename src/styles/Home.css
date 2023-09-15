@@ -30,8 +30,8 @@
 .headerContainer p {
   padding: 0;
   font-size: 40px;
-  font-weight: lighter;
-  color: black;
+  font-weight: 300;
+  color: rgb(44, 44, 44);
 }
 
 button {
