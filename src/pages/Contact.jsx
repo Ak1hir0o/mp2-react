@@ -1,6 +1,6 @@
 import React from "react";
 import SampleImg3 from "../assets/sample_img3.jpg";
-import "../styles/Contact.css";
+import "../styles/Contact.scss";
 
 const Contact = () => {
   return (
@@ -24,9 +24,12 @@ const Contact = () => {
         />
         <textarea
           className="contact-form-text"
-          placeholder="Your Message"
-        ></textarea>
-        <input type="submit" className="contact-form-btn" value="Submit" />
+          placeholder="Your Message"></textarea>
+        <input
+          type="submit"
+          className="contact-form-btn"
+          value="Submit"
+        />
       </form>
     </div>
   );
