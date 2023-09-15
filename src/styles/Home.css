@@ -5,7 +5,7 @@
   height: 90vh;
   display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: start;
   flex-direction: column;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,23 +34,24 @@
   color: rgb(44, 44, 44);
 }
 
-button {
-  background: black;
+.headerContainer button {
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: center;
+  background-color: #121619;
+  height: 50px;
+  width: 180px;
   color: white;
   text-decoration: none;
-  border: 2px solid transparent;
-  font-weight: bold;
-  padding: 13px 30px;
-  border-radius: 30px;
-  transition: 0.4s;
-  margin-bottom: 20px;
+  font-size: 20px;
 }
 
-button:hover {
-  background: transparent;
-  border: 2px solid black;
-  color: black;
+.headerContainer button:hover {
+  background-color: #07090a;
   cursor: pointer;
+  transition: 0.3s ease-in;
 }
 
 @media only screen and (max-width: 650px) {
