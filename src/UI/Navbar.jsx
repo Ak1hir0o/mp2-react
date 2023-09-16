@@ -19,9 +19,6 @@ const Navbar = () => {
         <Link to="/">
           <img src={Logo} alt="logo" />
         </Link>
-        <Link to="/">
-          <span>FOODIE.</span>
-        </Link>
 
         <div className="hiddenLinks">
           <Link to="/"> Home </Link>
