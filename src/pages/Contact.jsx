@@ -1,6 +1,6 @@
 import React from "react";
 import SampleImg3 from "../assets/sample_img3.jpg";
-import "../styles/Contact.scss";
+import "../styles/Contact.css";
 
 const Contact = () => {
   return (

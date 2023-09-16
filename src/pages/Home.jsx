@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LandingImg from "../assets/landing_img.jpg";
-import "../styles/Home.scss";
+import "../styles/Home.css";
 
 const Home = () => {
   return (

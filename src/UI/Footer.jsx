@@ -2,7 +2,7 @@ import React from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import "../styles/Footer.scss";
+import "../styles/Footer.css";
 
 const Footer = () => {
   return (

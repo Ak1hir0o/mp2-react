@@ -1,28 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;1,400&display=swap");
 
-$color_1: rgb(44, 44, 44);
-$color_2: white;
-$color_3: black;
-$font-family_1: "Roboto Mono", monospace;
-$border-color_1: black;
-$border-color_2: grey;
-
 * {
   box-sizing: border-box;
 }
+
 .contact-section {
   background-image: url(/src/assets/landing_img.jpg);
   padding: 10px 0;
-  h1 {
-    text-align: center;
-    font-family: $font-family_1;
-    color: $color_1;
-    font-size: 70px;
-    margin-bottom: 20px;
-    font-weight: lighter;
-    padding: 0;
-  }
 }
+
+.contact-section h1 {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  color: #2c2c2c;
+  font-size: 70px;
+  margin-bottom: 20px;
+  font-weight: lighter;
+  padding: 0;
+}
+
 .contact-form {
   max-width: 600px;
   margin: auto;
@@ -30,36 +26,41 @@ $border-color_2: grey;
   overflow: hidden;
   border-radius: 3px;
   border-width: 2px;
-  border-color: $border-color_1;
+  border-color: black;
   border-style: double;
-  &:hover {
-    padding: 20px 10px;
-    border-radius: 3px;
-    border-width: 2px;
-    border-color: $border-color_2;
-    border-style: double;
-  }
 }
+
+.contact-form:hover {
+  padding: 20px 10px;
+  border-radius: 3px;
+  border-width: 2px;
+  border-color: grey;
+  border-style: double;
+}
+
 .contact-form-text {
   display: block;
   width: 100%;
   box-sizing: border-box;
   margin: 20px 0;
   border: 0;
-  background: rgb(193, 193, 193);
+  background: #c1c1c1;
   padding: 20px 40px;
   outline: none;
   transition: 0.5s;
-  &:focus {
-    box-shadow: 0 0 10px 4px rgb(44, 44, 44);
-  }
 }
+
+.contact-form-text:focus {
+  box-shadow: 0 0 10px 4px #2c2c2c;
+}
+
 textarea.contact-form-text {
   height: 120px;
 }
+
 .contact-form-btn {
   background: black;
-  color: $color_2;
+  color: white;
   text-decoration: none;
   border: 2px solid transparent;
   font-weight: bold;
@@ -69,10 +70,11 @@ textarea.contact-form-text {
   margin-bottom: 20px;
   display: block;
   margin: auto;
-  &:hover {
-    background: transparent;
-    border: 2px solid black;
-    color: $color_3;
-    cursor: pointer;
-  }
+}
+
+.contact-form-btn:hover {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
 }

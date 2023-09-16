@@ -1,7 +1,7 @@
 import React from "react";
 import SampleImg from "../assets/sample_img.jpg";
 import SampleImg2 from "../assets/sample_img_2.jpg";
-import "../styles/About.scss";
+import "../styles/About.css";
 
 const About = () => {
   return (
