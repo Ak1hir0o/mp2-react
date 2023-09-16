@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./UI/Navbar";
+import Navbarr from "./UI/Navbarr";
 import Footer from "./UI/Footer";
 import routes from "./routes";
 import "./App.css";
@@ -8,7 +8,7 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Navbarr />
       <main>
         <Routes>
           {routes.map((route, index) => {

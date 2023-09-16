@@ -1,44 +1,37 @@
-import React, { useState } from "react";
-import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
-import ReorderIcon from "@mui/icons-material/Reorder";
-import "../styles/Navbar.css";
+// import React from "react";
+// import { Container, Nav, Navbar } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import Logo from "../assets/logo.png";
+// import "../styles/Navbar.css";
 
-const Navbar = () => {
-  const [openLinks, setOpenLinks] =
-    useState(false);
+// const Navbar = () => {
+//   return (
+//     <Navbar bg="dark" data-bs-theme="dark" expand="md">
+//       <Container fluid>
+//         <Navbar.Brand as={Link} to="/">
+//           <img src={Logo} alt="" width="70px" />
+//           FOODIE.
+//         </Navbar.Brand>
+//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//         <Navbar.Collapse id="basic-navbar-nav">
+//           <Nav className="ms-auto">
+//             <Nav.Link as={Link} to="/">
+//               Home
+//             </Nav.Link>
+//             <Nav.Link as={Link} to="/recipes">
+//               Recipes
+//             </Nav.Link>
+//             <Nav.Link as={Link} to="/about">
+//               About
+//             </Nav.Link>
+//             <Nav.Link as={Link} to="/contact">
+//               Contact
+//             </Nav.Link>
+//           </Nav>
+//         </Navbar.Collapse>
+//       </Container>
+//     </Navbar>
+//   );
+// };
 
-  const toggleNavbar = () => {
-    setOpenLinks(!openLinks);
-  };
-  return (
-    <div className="navbar">
-      <div
-        className="leftSide"
-        id={openLinks ? "open" : "close"}>
-        <Link to="/">
-          <img src={Logo} alt="logo" />
-        </Link>
-
-        <div className="hiddenLinks">
-          <Link to="/"> Home </Link>
-          <Link to="/recipes"> Recipes </Link>
-          <Link to="/about"> About </Link>
-          <Link to="/contact"> Contact </Link>
-        </div>
-      </div>
-
-      <div className="rightSide">
-        <Link to="/"> Home </Link>
-        <Link to="/recipes"> Recipes </Link>
-        <Link to="/about"> About </Link>
-        <Link to="/contact"> Contact </Link>
-        <button onClick={toggleNavbar}>
-          <ReorderIcon />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-export default Navbar;
+// export default Navbar;
