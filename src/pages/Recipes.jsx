@@ -1,92 +1,146 @@
-import React, { useState } from "react";
+import React, {
+  useState,
+  useEffect,
+} from "react";
 import axios from "axios";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+} from "react-bootstrap";
 import "../styles/Recipe.css";
 
-const SearchMeals = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [meals, setMeals] = useState([]);
-  const [selectedMeal, setSelectedMeal] = useState(null);
-  const [searchNotFound, setSearchNotFound] = useState(false);
+const Recipes = () => {
+  const [categories, setCategories] = useState(
+    []
+  );
+  const [selectedCategory, setSelectedCategory] =
+    useState(null);
+  const [categoryResults, setCategoryResults] =
+    useState([]);
 
-  const handleSearch = async () => {
-    if (/^\d+$/.test(searchTerm)) {
-      // Check if searchTerm is a number
-      alert("Please enter a valid search term without numbers.");
-      return;
-    }
+  useEffect(() => {
+    fetch(
+      "https://www.themealdb.com/api/json/v1/1/categories.php"
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        setCategories(data.categories)
+      )
+      .catch((error) => console.log(error));
+  }, []);
 
-    try {
-      const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`
-      );
-      setMeals(response.data.meals);
-      setSearchNotFound(response.data.meals === null);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    // Make another API call to get the results for the selected category
+    fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category.strCategory}`
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        setCategoryResults(data.meals)
+      )
+      .catch((error) => console.log(error));
   };
 
-  const handleMealClick = (meal) => {
-    setSelectedMeal(meal);
+  const openDetailsWindow = (result) => {
+    fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${result.strMeal}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const details = data.meals[0];
+        const detailsWindow = window.open(
+          "",
+          "_blank"
+        );
+        detailsWindow.document.write(`
+          <html>
+            <head>
+              <title>Meal Details</title>
+            </head>
+            <body>
+              <h1>${details.strMeal}</h1>
+              <img src="${details.strMealThumb}" alt="${details.strMeal}" />
+              <p><strong>Ingredients:</strong> ${details.strIngredient1}, ${details.strIngredient2}, ${details.strIngredient3}, ...</p>
+              <p><strong>Procedure:</strong> ${details.strInstructions}</p>
+            </body>
+          </html>
+        `);
+        detailsWindow.document.close();
+      })
+      .catch((error) => console.log(error));
   };
-
-  const handleBackClick = () => {
-    setSelectedMeal(null);
-  };
-
-  if (selectedMeal) {
-    return (
-      <Container>
-        <button onClick={handleBackClick}>Back</button>
-        <h3>{selectedMeal.strMeal}</h3>
-        <img src={selectedMeal.strMealThumb} alt={selectedMeal.strMeal} />
-        <h4>Ingredients:</h4>
-        <ul>
-          {Object.entries(selectedMeal)
-            .filter(([key, value]) => key.startsWith("strIngredient") && value)
-            .map(([key, value]) => (
-              <li key={key}>{value}</li>
-            ))}
-        </ul>
-        <h4>Cooking Procedure:</h4>
-        <p>{selectedMeal.strInstructions}</p>
-      </Container>
-    );
-  }
 
   return (
     <Container>
-      <input
-        className="recipies"
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+      <h1>Categories</h1>
+      <Row>
+        {categories.map((category) => (
+          <Col
+            key={category.idCategory}
+            sm={6}
+            md={4}
+            lg={3}>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={category.strCategoryThumb}
+              />
+              <Card.Body>
+                <Card.Title>
+                  {category.strCategory}
+                </Card.Title>
+                <Button
+                  onClick={() =>
+                    handleCategoryClick(category)
+                  }>
+                  View Category
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
 
-      {searchNotFound ? (
-        <p>Search not found.</p>
-      ) : (
-        <Row>
-          {meals.map((meal) => (
-            <Col key={meal.idMeal} sm={6} md={4} lg={3}>
-              <Card onClick={() => handleMealClick(meal)}>
-                <Card.Img
-                  variant="top"
-                  src={meal.strMealThumb}
-                  alt={meal.strMeal}
-                />
-                <Card.Body>
-                  <Card.Title>{meal.strMeal}</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+      {selectedCategory && (
+        <>
+          <h2>
+            Results for{" "}
+            {selectedCategory.strCategory}
+          </h2>
+          <Row>
+            {categoryResults.map((result) => (
+              <Col
+                key={result.idMeal}
+                sm={6}
+                md={4}
+                lg={3}>
+                <Card>
+                  <Card.Img
+                    variant="top"
+                    src={result.strMealThumb}
+                  />
+                  <Card.Body>
+                    <Card.Title>
+                      {result.strMeal}
+                    </Card.Title>
+                    <Button
+                      onClick={() =>
+                        openDetailsWindow(result)
+                      }>
+                      View Details
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </>
       )}
     </Container>
   );
 };
-
-export default SearchMeals;
+export default Recipes;

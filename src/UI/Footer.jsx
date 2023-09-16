@@ -1,15 +1,15 @@
 import React from "react";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import FacebookIcon from "@mui/icons-material/Facebook";
+import { BsTwitter } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
+import { BsFacebook } from "react-icons/bs";
 import "../styles/Footer.css";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="socialMedia">
-        <InstagramIcon /> <TwitterIcon />
-        <FacebookIcon />
+        <BsInstagram /> <BsTwitter />
+        <BsFacebook />
       </div>
       <p> &copy; Copyright 2022</p>
     </div>
