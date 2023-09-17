@@ -10,6 +10,8 @@ import {
   Card,
   Button,
   Form,
+  Tab,
+  Tabs,
 } from "react-bootstrap";
 import "../styles/Recipe.css";
 
@@ -177,33 +179,27 @@ const Recipes = () => {
       )}
 
       <h1>Categories</h1>
-      <Row>
+      <Tabs
+        id="category-tabs"
+        activeKey={
+          selectedCategory &&
+          selectedCategory.strCategory
+        }
+        onSelect={(category) => {
+          const selectedCategory =
+            categories.find(
+              (cat) =>
+                cat.strCategory === category
+            );
+          handleCategoryClick(selectedCategory);
+        }}>
         {categories.map((category) => (
-          <Col
+          <Tab
             key={category.idCategory}
-            sm={6}
-            md={4}
-            lg={3}>
-            <Card>
-              <Card.Img
-                variant="top"
-                src={category.strCategoryThumb}
-              />
-              <Card.Body>
-                <Card.Title>
-                  {category.strCategory}
-                </Card.Title>
-                <Button
-                  onClick={() =>
-                    handleCategoryClick(category)
-                  }>
-                  View Category
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+            eventKey={category.strCategory}
+            title={category.strCategory}></Tab>
         ))}
-      </Row>
+      </Tabs>
 
       {selectedCategory && (
         <>
@@ -225,10 +221,12 @@ const Recipes = () => {
                     variant="top"
                     src={result.strMealThumb}
                   />
+
                   <Card.Body>
                     <Card.Title>
                       {result.strMeal}
                     </Card.Title>
+
                     <Button
                       onClick={() =>
                         openDetailsWindow(result)
