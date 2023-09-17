@@ -93,18 +93,29 @@ const Recipes = () => {
         "_blank"
       );
       detailsWindow.document.write(`
-        <html>
-          <head>
-            <title>Meal Details</title>
-          </head>
-          <body>
-            <h1>${details.strMeal}</h1>
-            <img src="${details.strMealThumb}" alt="${details.strMeal}" />
-            <p><strong>Ingredients:</strong> ${details.strIngredient1}, ${details.strIngredient2}, ${details.strIngredient3}, ...</p>
-            <p><strong>Procedure:</strong> ${details.strInstructions}</p>
-          </body>
-        </html>
-      `);
+      <html>
+        <head>
+          <title>Meal Details</title>
+        </head>
+        <body>
+          <h1>${details.strMeal}</h1>
+          <img src="${
+            details.strMealThumb
+          }" alt="${details.strMeal}" />
+          <p><strong>Ingredients:</strong> ${
+            details.strIngredient1
+          }, ${details.strIngredient2}, ${
+        details.strIngredient3
+      }, ...</p>
+          <p><strong>Procedure:</strong> ${
+            details.strInstructions
+          }</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/${details.strYoutube.slice(
+            -11
+          )}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </body>
+      </html>
+    `);
       detailsWindow.document.close();
     } catch (error) {
       console.log(error);
