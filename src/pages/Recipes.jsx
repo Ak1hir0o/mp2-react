@@ -196,10 +196,12 @@ const Recipes = () => {
 
       {selectedCategory && (
         <>
-          <h2>
-            Results for{" "}
-            {selectedCategory.strCategory}
-          </h2>
+          <section className="recipes-section">
+            <h2>
+              Results for{" "}
+              {selectedCategory.strCategory}
+            </h2>
+          </section>
           <Row>
             {categoryResults.map((result) => (
               <Col
