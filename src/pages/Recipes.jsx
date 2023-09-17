@@ -1,34 +1,17 @@
-import React, {
-  useState,
-  useEffect,
-} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Button,
-} from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "../styles/Recipe.css";
 
 const Recipes = () => {
-  const [categories, setCategories] = useState(
-    []
-  );
-  const [selectedCategory, setSelectedCategory] =
-    useState(null);
-  const [categoryResults, setCategoryResults] =
-    useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [categoryResults, setCategoryResults] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://www.themealdb.com/api/json/v1/1/categories.php"
-    )
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((response) => response.json())
-      .then((data) =>
-        setCategories(data.categories)
-      )
+      .then((data) => setCategories(data.categories))
       .catch((error) => console.log(error));
   }, []);
 
@@ -39,9 +22,7 @@ const Recipes = () => {
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category.strCategory}`
     )
       .then((response) => response.json())
-      .then((data) =>
-        setCategoryResults(data.meals)
-      )
+      .then((data) => setCategoryResults(data.meals))
       .catch((error) => console.log(error));
   };
 
@@ -52,10 +33,7 @@ const Recipes = () => {
       .then((response) => response.json())
       .then((data) => {
         const details = data.meals[0];
-        const detailsWindow = window.open(
-          "",
-          "_blank"
-        );
+        const detailsWindow = window.open("", "_blank");
         detailsWindow.document.write(`
           <html>
             <head>
@@ -76,27 +54,17 @@ const Recipes = () => {
 
   return (
     <Container>
-      <h1>Categories</h1>
+      <section className="recipes-section">
+        <h1>Categories</h1>
+      </section>
       <Row>
         {categories.map((category) => (
-          <Col
-            key={category.idCategory}
-            sm={6}
-            md={4}
-            lg={3}>
+          <Col key={category.idCategory} sm={6} md={4} lg={3}>
             <Card>
-              <Card.Img
-                variant="top"
-                src={category.strCategoryThumb}
-              />
+              <Card.Img variant="top" src={category.strCategoryThumb} />
               <Card.Body>
-                <Card.Title>
-                  {category.strCategory}
-                </Card.Title>
-                <Button
-                  onClick={() =>
-                    handleCategoryClick(category)
-                  }>
+                <Card.Title>{category.strCategory}</Card.Title>
+                <Button onClick={() => handleCategoryClick(category)}>
                   View Category
                 </Button>
               </Card.Body>
@@ -107,30 +75,17 @@ const Recipes = () => {
 
       {selectedCategory && (
         <>
-          <h2>
-            Results for{" "}
-            {selectedCategory.strCategory}
-          </h2>
+          <section className="recipes-section">
+            <h2>Results for {selectedCategory.strCategory}</h2>
+          </section>
           <Row>
             {categoryResults.map((result) => (
-              <Col
-                key={result.idMeal}
-                sm={6}
-                md={4}
-                lg={3}>
+              <Col key={result.idMeal} sm={6} md={4} lg={3}>
                 <Card>
-                  <Card.Img
-                    variant="top"
-                    src={result.strMealThumb}
-                  />
+                  <Card.Img variant="top" src={result.strMealThumb} />
                   <Card.Body>
-                    <Card.Title>
-                      {result.strMeal}
-                    </Card.Title>
-                    <Button
-                      onClick={() =>
-                        openDetailsWindow(result)
-                      }>
+                    <Card.Title>{result.strMeal}</Card.Title>
+                    <Button onClick={() => openDetailsWindow(result)}>
                       View Details
                     </Button>
                   </Card.Body>
