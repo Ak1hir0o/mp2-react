@@ -43,6 +43,40 @@ main {
     padding: 5px;
 } */
 
+button.search-btn.btn.btn-primary {
+  background: black;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;
+  border-radius: 30px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+  display: block;
+  margin: auto;
+}
+
+button.search-btn.btn.btn-primary:hover {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-tabs .nav-link {
+  color: black;
+}
+
+.nav-tabs .nav-link:hover {
+  color: white;
+  background: black;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
 div.card-title.h5 {
   margin-bottom: var(--bs-card-title-spacer-y);
   color: white;
