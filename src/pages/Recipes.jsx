@@ -228,7 +228,13 @@ const Recipes = () => {
           <Tab
             key={category.idCategory}
             eventKey={category.strCategory}
-            title={category.strCategory}></Tab>
+            title={category.strCategory}
+            className={
+              category.strCategory ===
+              selectedCategory?.strCategory
+                ? "tab-active"
+                : ""
+            }></Tab>
         ))}
       </Tabs>
 
