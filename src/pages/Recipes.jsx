@@ -119,9 +119,11 @@ const Recipes = () => {
               details.strMealThumb
             }" alt="${details.strMeal}" />
             <div class="card-body">
-              <h5 class="card-title">${
+            <section class="recipes-section">
+              <h1 class="card-title">${
                 details.strMeal
-              }</h5>
+              }</h1>
+              </section>
               <p class="card-text"><strong>Ingredients:</strong> ${
                 details.strIngredient1
               }, ${details.strIngredient2}, ${
