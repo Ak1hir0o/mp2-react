@@ -65,12 +65,15 @@ button.search-btn.btn.btn-primary:hover {
 }
 
 .nav-tabs .nav-link {
-  color: black;
+  color: white;
+  background-color: black;
+  margin: 0.25rem;
+  border-radius: 1rem;
 }
 
 .nav-tabs .nav-link:hover {
-  color: white;
-  background: black;
+  color: black;
+  background: white;
 }
 
 .form-control {
