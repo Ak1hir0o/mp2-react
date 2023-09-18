@@ -19,6 +19,9 @@ const Recipes = () => {
   const [categories, setCategories] = useState(
     []
   );
+  const firstCategory =
+    categories.length > 0 ? categories[0] : null;
+
   const [selectedCategory, setSelectedCategory] =
     useState(null);
   const [categoryResults, setCategoryResults] =
@@ -29,6 +32,11 @@ const Recipes = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
+  useEffect(() => {
+    if (firstCategory) {
+      handleCategoryClick(firstCategory);
+    }
+  }, [firstCategory]);
 
   const fetchCategories = async () => {
     try {
@@ -181,9 +189,9 @@ const Recipes = () => {
       <h1>Categories</h1>
       <Tabs
         id="category-tabs"
-        activeKey={
-          selectedCategory &&
-          selectedCategory.strCategory
+        defaultActiveKey={
+          firstCategory &&
+          firstCategory.strCategory
         }
         onSelect={(category) => {
           const selectedCategory =
