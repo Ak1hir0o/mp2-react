@@ -134,7 +134,10 @@ const Recipes = () => {
 
   return (
     <Container>
-      <h1>Recipe Search</h1>
+      <section className="recipes-section">
+        <h1>Recipe Search</h1>
+      </section>
+
       <Form
         onSubmit={(event) => {
           event.preventDefault();
@@ -143,14 +146,20 @@ const Recipes = () => {
               .value;
           handleSearch(searchTerm);
         }}>
-        <Form.Group controlId="searchForm">
-          <Form.Control
-            type="text"
-            name="searchTerm"
-            placeholder="Search for a recipe"
-          />
-          <Button type="submit">Search</Button>
-        </Form.Group>
+        <div className="search-control">
+          <Form.Group controlId="searchForm">
+            <Form.Control
+              type="text"
+              name="searchTerm"
+              placeholder="Search for a recipe"
+            />
+            <Button
+              className="search-btn"
+              type="submit">
+              Search
+            </Button>
+          </Form.Group>
+        </div>
       </Form>
 
       {searchResults.length > 0 && (
@@ -185,8 +194,9 @@ const Recipes = () => {
           </Row>
         </>
       )}
-
-      <h1>Categories</h1>
+      <section className="recipes-section">
+        <h2>Categories</h2>
+      </section>
       <Tabs
         id="category-tabs"
         defaultActiveKey={
