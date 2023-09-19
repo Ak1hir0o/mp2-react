@@ -53,6 +53,13 @@ const Contact = () => {
               Submit
             </Button>
           </Col>
+          <Col>
+            <Button
+              type="submit"
+              className="contact-form-btn">
+              Submit
+            </Button>
+          </Col>
         </Row>
       </Form>
     </Container>
