@@ -12,10 +12,12 @@
   background-size: cover;
   font-family: "Roboto Mono", monospace;
 }
+
 .headerContainer {
   width: auto;
   margin-left: 50px;
 }
+
 .headerContainer h1 {
   justify-content: center;
   align-items: center;
@@ -25,12 +27,14 @@
   color: black;
   margin-bottom: 60px;
 }
+
 .headerContainer p {
   padding: 0;
   font-size: 40px;
   font-weight: lighter;
   color: black;
 }
+
 .headerContainer button {
   background: black;
   color: white;
@@ -42,22 +46,23 @@
   transition: 0.4s;
   margin-bottom: 20px;
 }
+
 .headerContainer button:hover {
   background: transparent;
   border: 2px solid black;
   color: black;
   cursor: pointer;
 }
+
 @media only screen and (max-width: 650px) {
   .home {
     justify-content: center;
     align-items: center;
   }
+
   .headerContainer {
     margin-left: 0px;
     border-radius: 10px;
-    padding: 10px;
-    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,15 +70,18 @@
     background-color: #121619;
     color: white;
   }
+
   .headerContainer h1 {
     font-size: 40px;
     height: 30px;
     color: white;
   }
+
   .headerContainer p {
     font-size: 30px;
     color: white;
   }
+
   .headerContainer button {
     background: white;
     color: black;
@@ -85,6 +93,7 @@
     transition: 0.4s;
     margin-bottom: 20px;
   }
+
   .headerContainer button:hover {
     background: transparent;
     border: 2px solid white;

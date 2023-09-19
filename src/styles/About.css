@@ -2,23 +2,25 @@
 
 .about {
   width: 100%;
-  padding: 78px, 0px;
-  background-image: url(/src/assets/landing_img.jpg);
+  padding: 78px 0px;
+
 }
 
 .about img {
   height: auto;
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
 }
 
 .about .img2 {
-  height: 303px;
-  width: 420px;
+  height: auto;
+  width: 100%;
+  max-width: 420px;
   object-fit: cover;
 }
 
 .about-text {
-  width: 550px;
+  max-width: 550px;
 }
 
 .about-text h1 {
@@ -46,10 +48,11 @@
 }
 
 .main {
-  width: 1130px;
-  max-width: 95%;
+  width: 100%;
+  max-width: 1130px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
