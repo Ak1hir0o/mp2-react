@@ -121,8 +121,7 @@ button.btn.btn-primary:hover {
 }
 
 img.card-img-top {
-  border: 5px solid black;
-  border-radius: 10px;
+  border: 3px solid black;
 }
 
 button {

@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+} from "react";
 import axios from "axios";
 import {
   Container,
@@ -13,12 +16,18 @@ import {
 import "../styles/Recipe.css";
 
 const Recipes = () => {
-  const [categories, setCategories] = useState([]);
-  const firstCategory = categories.length > 0 ? categories[0] : null;
+  const [categories, setCategories] = useState(
+    []
+  );
+  const firstCategory =
+    categories.length > 0 ? categories[0] : null;
 
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [categoryResults, setCategoryResults] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
+  const [selectedCategory, setSelectedCategory] =
+    useState(null);
+  const [categoryResults, setCategoryResults] =
+    useState([]);
+  const [searchResults, setSearchResults] =
+    useState([]);
 
   useEffect(() => {
     fetchCategories();
@@ -45,7 +54,9 @@ const Recipes = () => {
     fetchCategoryResults(category.strCategory);
   };
 
-  const fetchCategoryResults = async (category) => {
+  const fetchCategoryResults = async (
+    category
+  ) => {
     try {
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
@@ -60,7 +71,9 @@ const Recipes = () => {
     // Check if the search term contains numbers or special characters
     const regex = /^[a-zA-Z\s]+$/;
     if (!regex.test(searchTerm)) {
-      alert("Invalid search term. Please enter only letters and spaces.");
+      alert(
+        "Invalid search term. Please enter only letters and spaces."
+      );
       return;
     }
 
@@ -85,32 +98,78 @@ const Recipes = () => {
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${result.strMeal}`
       );
       const details = response.data.meals[0];
-      const detailsWindow = window.open("", "_blank");
+      const detailsWindow = window.open(
+        "",
+        "_blank"
+      );
       detailsWindow.document.write(`
       <html>
-        <head>
-          <title>Meal Details</title>
-          <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous"
-          />
-
-        </head>
-        <body>
+  <head>
+    <title>Food Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+         padding: 20px;
+        background-image: url('/src/assets/landing_img.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      .card {
+        background: transparent;
+        margin-bottom: 20px;
+        border: none;
+      }
+      .card-img-top {
+        display: block;
+       margin: 20px auto;
+        max-width: 50%;
+        height: auto;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
           <div class="card">
-            <img class="card-img-top" src="${details.strMealThumb}" alt="${
-        details.strMeal
-      }" />
+            <img class="card-img-top" src="${
+              details.strMealThumb
+            }" alt="${details.strMeal}" />
             <div class="card-body">
-              <h5 class="card-title">${details.strMeal}</h5>
+              <h5 class="card-title">${
+                details.strMeal
+              }</h5>
               <p class="card-text"><strong>Ingredients:</strong> ${
                 details.strIngredient1
-              }, ${details.strIngredient2}, ${details.strIngredient3}, ...</p>
-              <p class="card-text"><strong>Procedure:</strong> ${
-                details.strInstructions
-              }</p>
+              }, ${details.strIngredient2}, ${
+        details.strIngredient3
+      }, ...</p>
+              <h5 class="card-title">Procedure:</h5>
+              <ul>
+                ${details.strInstructions
+                  .split("\n")
+                  .filter(
+                    (step) => step.trim() !== ""
+                  )
+                  .map(
+                    (step, index) =>
+                      `<li>${step}</li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">YouTube Video</h5>
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/${details.strYoutube.slice(
                   -11
@@ -118,8 +177,11 @@ const Recipes = () => {
               </div>
             </div>
           </div>
-        </body>
-      </html>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
     `);
       detailsWindow.document.close();
     } catch (error) {
@@ -134,17 +196,20 @@ const Recipes = () => {
       <Form
         onSubmit={(event) => {
           event.preventDefault();
-          const searchTerm = event.target.elements.searchTerm.value;
+          const searchTerm =
+            event.target.elements.searchTerm
+              .value;
           handleSearch(searchTerm);
-        }}
-      >
+        }}>
         <Form.Group controlId="searchForm">
           <Form.Control
             type="text"
             name="searchTerm"
             placeholder="Search for a recipe"
           />
-          <Button type="submit" className="search-btn">
+          <Button
+            type="submit"
+            className="search-btn">
             Search
           </Button>
         </Form.Group>
@@ -155,12 +220,24 @@ const Recipes = () => {
           <h2>Search Results</h2>
           <Row>
             {searchResults.map((result) => (
-              <Col key={result.idMeal} sm={6} md={4} lg={3}>
+              <Col
+                key={result.idMeal}
+                sm={6}
+                md={4}
+                lg={3}>
                 <Card>
-                  <Card.Img variant="top" src={result.strMealThumb} />
+                  <Card.Img
+                    variant="top"
+                    src={result.strMealThumb}
+                  />
                   <Card.Body>
-                    <Card.Title>{result.strMeal}</Card.Title>
-                    <Button onClick={() => openDetailsWindow(result)}>
+                    <Card.Title>
+                      {result.strMeal}
+                    </Card.Title>
+                    <Button
+                      onClick={() =>
+                        openDetailsWindow(result)
+                      }>
                       View Details
                     </Button>
                   </Card.Body>
@@ -176,38 +253,56 @@ const Recipes = () => {
       </section>
       <Tabs
         id="category-tabs"
-        defaultActiveKey={firstCategory && firstCategory.strCategory}
+        defaultActiveKey={
+          firstCategory &&
+          firstCategory.strCategory
+        }
         onSelect={(category) => {
-          const selectedCategory = categories.find(
-            (cat) => cat.strCategory === category
-          );
+          const selectedCategory =
+            categories.find(
+              (cat) =>
+                cat.strCategory === category
+            );
           handleCategoryClick(selectedCategory);
-        }}
-      >
+        }}>
         {categories.map((category) => (
           <Tab
             key={category.idCategory}
             eventKey={category.strCategory}
-            title={category.strCategory}
-          ></Tab>
+            title={category.strCategory}></Tab>
         ))}
       </Tabs>
 
       {selectedCategory && (
         <>
           <section className="recipes-section">
-            <h2>Results for {selectedCategory.strCategory}</h2>
+            <h2>
+              Results for{" "}
+              {selectedCategory.strCategory}
+            </h2>
           </section>
           <Row>
             {categoryResults.map((result) => (
-              <Col key={result.idMeal} sm={6} md={4} lg={3}>
+              <Col
+                key={result.idMeal}
+                sm={6}
+                md={4}
+                lg={3}>
                 <Card>
-                  <Card.Img variant="top" src={result.strMealThumb} />
+                  <Card.Img
+                    variant="top"
+                    src={result.strMealThumb}
+                  />
 
                   <Card.Body>
-                    <Card.Title>{result.strMeal}</Card.Title>
+                    <Card.Title>
+                      {result.strMeal}
+                    </Card.Title>
 
-                    <Button onClick={() => openDetailsWindow(result)}>
+                    <Button
+                      onClick={() =>
+                        openDetailsWindow(result)
+                      }>
                       View Details
                     </Button>
                   </Card.Body>
