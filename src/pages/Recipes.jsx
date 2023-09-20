@@ -105,13 +105,14 @@ const Recipes = () => {
       detailsWindow.document.write(`
       <html>
   <head>
-    <title>Food Blog</title>
+    <title>FOODIE</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    
     <style>
       body {
          padding: 20px;
@@ -125,6 +126,7 @@ const Recipes = () => {
         border: none;
       }
       .card-img-top {
+        border-radius: 7px;
         display: block;
        margin: 20px auto;
         max-width: 50%;
