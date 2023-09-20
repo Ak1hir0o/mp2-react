@@ -8,4 +8,20 @@ a.navbar-brand {
 .navbar a.nav-link {
   color: white;
   font-family: "Dancing Script", cursive;
+  position: relative;
+}
+
+.navbar a.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease-out;
+}
+
+.navbar a.nav-link:hover::before {
+  width: 100%;
 }

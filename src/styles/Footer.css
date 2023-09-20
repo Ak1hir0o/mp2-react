@@ -19,3 +19,19 @@
   font-size: 30px;
   cursor: pointer;
 }
+
+.quickLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quickLinks a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.quickLinks a:hover {
+  text-decoration: underline;
+}
