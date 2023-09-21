@@ -97,6 +97,7 @@ div.card-body {
   height: 200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 button.btn.btn-primary {
@@ -108,9 +109,7 @@ button.btn.btn-primary {
   padding: 13px 30px;
   border-radius: 30px;
   transition: 0.4s;
-  margin-bottom: 20px;
   display: block;
-  margin: auto;
 }
 
 button.btn.btn-primary:hover {
