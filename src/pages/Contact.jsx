@@ -11,6 +11,7 @@ import {
 import "../styles/Contact.css";
 
 const Contact = () => {
+  // State variables for form validation and success/error messages
   const [validated, setValidated] =
     useState(false);
   const [showSuccess, setShowSuccess] =
@@ -18,6 +19,7 @@ const Contact = () => {
   const [showError, setShowError] =
     useState(false);
 
+  // Handle form submission
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -59,18 +61,23 @@ const Contact = () => {
             validated={validated}
             onSubmit={handleSubmit}
             className="contact-form">
+            {/* Name input */}
             <Form.Control
               required
               type="text"
               className="contact-form-text"
               placeholder="Your Name"
             />
+
+            {/* Email input */}
             <Form.Control
               required
               type="email"
               className="contact-form-text"
               placeholder="Your E-mail"
             />
+
+            {/* Phone number input */}
             <Form.Control
               required
               type="tel"
@@ -79,12 +86,16 @@ const Contact = () => {
               className="contact-form-text"
               placeholder="Your Phone Number"
             />
+
+            {/* Message input */}
             <Form.Control
               required
               as="textarea"
               className="contact-form-text"
               placeholder="Your Message"
             />
+
+            {/* Submit button */}
             <Button
               type="submit"
               className="contact-form-btn">

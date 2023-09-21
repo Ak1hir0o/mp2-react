@@ -9,6 +9,14 @@ import SampleImg2 from "../assets/sample_img2.jpg";
 import "../styles/About.css";
 
 const About = () => {
+  /*
+   * This component renders the About section of the website.
+   * It uses the React Bootstrap library for layout and styling.
+   * The section consists of two columns with text and images.
+   * The text content is wrapped in divs with specific classNames for styling.
+   * The images are imported from the assets directory.
+   */
+
   return (
     <Container>
       <section className="about">
