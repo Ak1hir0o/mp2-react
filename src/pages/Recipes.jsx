@@ -114,7 +114,6 @@ const Recipes = () => {
     
     <style>
       body {
-         padding: 20px;
         background-image: url('/src/assets/landing_img.jpg');
        
       }
@@ -123,28 +122,58 @@ const Recipes = () => {
         margin-bottom: 20px;
         border: none;
       }
-      .card-img-top {
-        border-radius: 7px;
-        display: block;
-       margin: 20px auto;
-        max-width: 50%;
-        height: auto;
+      img {
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
       }
       
+      h1.card-title {
+        text-align: center;
+        font-family: "Roboto Mono", monospace;
+        color: #2c2c2c;
+        font-size: 70px;
+        margin-bottom: 20px;
+        font-weight: lighter;
+        padding: 0;
+      }
+
+      p.card-text {
+        font-family: "Roboto Mono", monospace;
+        color: black;
+        font-size: 25px;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+      }
+
+      h5.card-title {
+        font-family: "Roboto Mono", monospace;
+        color: black;
+        font-size: 25px;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+      }
+
+      li {
+        font-family: "Roboto Mono", monospace;
+        color: #2c2c2c;
+        font-size: 18px;
+        margin-bottom: 45px;
+        letter-spacing: 1px;
+      }
+
     </style>
   </head>
   <body>
+  <img src="${details.strMealThumb}" alt="${
+        details.strMeal
+      }" />
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-          <div class="card">
-            <img class="card-img-top" src="${
-              details.strMealThumb
-            }" alt="${details.strMeal}" />
             <div class="card-body">
-              <h5 class="card-title">${
+              <h1 class="card-title">${
                 details.strMeal
-              }</h5>
+              }</h1>
               <p class="card-text"><strong>Ingredients:</strong> ${
                 details.strIngredient1
               }, ${details.strIngredient2}, ${
@@ -163,11 +192,7 @@ const Recipes = () => {
                   )
                   .join("")}
               </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
+              <div class="card">
             <div class="card-body">
               <h5 class="card-title">YouTube Video</h5>
               <div class="embed-responsive embed-responsive-16by9">
@@ -176,6 +201,10 @@ const Recipes = () => {
                 )}" allowfullscreen></iframe>
               </div>
             </div>
+          </div>
+        </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
