@@ -19,6 +19,12 @@ const Contact = () => {
   const [showError, setShowError] =
     useState(false);
 
+  // Custom validation function for the phone number input
+  const validatePhoneNumber = (value) => {
+    const phoneNumberRegex = /^(\+?63|0)9\d{9}$/; // Philippine phone number format regex
+    return phoneNumberRegex.test(value);
+  };
+
   // Handle form submission
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -85,6 +91,17 @@ const Contact = () => {
               maxLength={12}
               className="contact-form-text"
               placeholder="Your Phone Number"
+              onChange={(e) => {
+                const isValid =
+                  validatePhoneNumber(
+                    e.target.value
+                  );
+                e.target.setCustomValidity(
+                  isValid
+                    ? ""
+                    : "Please enter a valid Philippine phone number"
+                );
+              }}
             />
 
             {/* Message input */}
