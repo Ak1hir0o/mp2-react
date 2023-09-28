@@ -114,7 +114,7 @@ const Recipes = () => {
     
     <style>
       body {
-        background: red;
+        background-image: linear-gradient(to right top, #6bd1c3, #73d0d2, #84cedc, #98cce0, #abcadf, #afcce1, #b2cfe4, #b6d1e6, #acd9ed, #a2e1f1, #9ae9f0, #97f0ea);
        
       }
       .card {
