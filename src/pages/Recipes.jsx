@@ -114,7 +114,7 @@ const Recipes = () => {
     
     <style>
       body {
-        background-image: url('.../src/assets/landing_img.jpg');
+        background-image: url('./src/assets/landing_img.jpg');
        
       }
       .card {
@@ -164,7 +164,7 @@ const Recipes = () => {
 
     </style>
   </head>
-  <body style="bacground-image: url('.../src/assets/landing_img.jpg');">
+  <body>
   <img src="${details.strMealThumb}" alt="${
         details.strMeal
       }" />
