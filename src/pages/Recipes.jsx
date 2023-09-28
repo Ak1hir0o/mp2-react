@@ -114,7 +114,7 @@ const Recipes = () => {
     
     <style>
       body {
-        background: #B8B8FF;
+        background: #E5E6E4;
        
       }
       .card {
