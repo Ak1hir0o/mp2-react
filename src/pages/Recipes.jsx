@@ -114,7 +114,7 @@ const Recipes = () => {
     
     <style>
       body {
-        background-image: url('/src/assets/landing_img.jpg');
+        background-image: url('.../src/assets/landing_img.jpg');
        
       }
       .card {
