@@ -164,7 +164,7 @@ const Recipes = () => {
 
     </style>
   </head>
-  <body>
+  <body style="bacground-image: url('.../src/assets/landing_img.jpg');">
   <img src="${details.strMealThumb}" alt="${
         details.strMeal
       }" />
